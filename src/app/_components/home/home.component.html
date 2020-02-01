@@ -1,0 +1,12 @@
+<main class="img">
+
+  <div fxLayoutAlign="center center" fxLayout="column">
+      <h1>
+        CROUSORAMA
+      </h1>
+      <h3>Pas la bourse à laquelle vous pensez</h3>
+      <button mat-raised-button (click)="loginWithGoogle()" *ngIf="!loggedIn">Se connecter avec Google</button>
+      <button mat-raised-button (click)="loginWithGoogle()" *ngIf="loggedIn">Rejoindre la bourse</button>
+  </div>
+
+</main>
