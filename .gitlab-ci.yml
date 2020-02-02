@@ -34,6 +34,6 @@ deploy:
     - gcloud --version
     - echo $CD_SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
     - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
-    - gcloud app deploy app.yaml --project $PROJECT_ID --version=$(date +%d-%m-%Y-dev) --quiet
+    - gcloud app deploy app.yml --project $PROJECT_ID --version=$(date +%d-%m-%Y-dev) --quiet
   after_script:
     - rm /tmp/$CI_PIPELINE_ID.json
