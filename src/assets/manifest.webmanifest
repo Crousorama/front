@@ -1,8 +1,8 @@
 {
-  "name": "Crousorama",
+  "name": "Crousorama - Pas la bourse à laquelle vous pensez",
   "short_name": "Crousorama",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#212121",
+  "background_color": "#f9f9f9",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
