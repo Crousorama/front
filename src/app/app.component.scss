@@ -1,0 +1,28 @@
+mat-sidenav {
+  width: 40vw;
+
+  .content-container {
+
+    & > * {
+      margin: 10px 0;
+    }
+
+    img {
+      width: 56px;
+      border-radius: 50%;
+    }
+
+    h2 {
+      font-weight: 400;
+    }
+
+    .divider {
+      width: 90%;
+      height: 0;
+      border-bottom: 1px solid #212121;
+      margin: 10px auto;
+    }
+  }
+
+
+}

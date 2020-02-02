@@ -1,1 +1,18 @@
-<p>search works!</p>
+<main fxLayout="column" fxLayoutAlign="start center">
+  <mat-form-field class="search-form-field">
+    <mat-label>Rechercher</mat-label>
+    <input type="text" matInput (keyup)="onChange($event)" [(ngModel)]="searchInput" [matAutocomplete]="auto">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions"
+                  [value]="option.longname"
+                  (click)="onClickAutoComplete(option)">
+        {{option.symbol}} - {{option.longname}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <app-stock-info (intervalEmitter)="onChangeRange($event)" *ngIf="!loading && currentStock" [stockInfo]="currentStock"></app-stock-info>
+</main>
+

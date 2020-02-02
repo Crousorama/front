@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<mat-toolbar *ngIf="shouldDisplayToolbar()" color="primary">
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  Crousorama
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="over" [(opened)]="opened">
+    <div *ngIf="user" fxLayout="column" fxLayoutAlign="center center" class="content-container">
+      <img [src]="user.photoURL" alt="profile pic" />
+      <h2>{{user.displayName}}</h2>
+      <div class="divider"></div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

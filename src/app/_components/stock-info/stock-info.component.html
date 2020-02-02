@@ -1,0 +1,25 @@
+<div class="main-container" fxLayout="column" fxLayoutAlign="center center">
+  <div fxLayoutAlign="space-between center" class="full-width">
+    <div fxLayoutAlign="center center">
+      <h1>{{stockInfo.meta.symbol}}</h1>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <p>Currency in {{stockInfo.meta.currency}}</p>
+      <h3>{{stockInfo.meta.regularMarketPrice}}</h3>
+    </div>
+  </div>
+  <div fxLayoutAlign="center center">
+    <mat-chip-list>
+      <div *ngFor="let val of stockInfo.meta.validRanges">
+        <mat-chip (click)="changeRange(val)">
+          {{val}}
+        </mat-chip>
+      </div>
+    </mat-chip-list>
+  </div>
+  <div fxLayoutAlign="center center">
+    <google-chart [type]="'LineChart'" [data]="chartData"></google-chart>
+  </div>
+</div>
+
+

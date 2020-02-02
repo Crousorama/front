@@ -1,3 +1,99 @@
+$md-primary-palette: (
+  50 : #e4e4e4,
+  100 : #bcbcbc,
+  200 : #909090,
+  300 : #646464,
+  400 : #424242,
+  500 : #212121,
+  600 : #1d1d1d,
+  700 : #181818,
+  800 : #141414,
+  900 : #0b0b0b,
+  A100 : #e76c6c,
+  A200 : #e04040,
+  A400 : #ec0000,
+  A700 : #d30000,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+$md-accent-palette: (
+  50 : #f5efea,
+  100 : #e6d8ca,
+  200 : #d5bea7,
+  300 : #c4a483,
+  400 : #b89169,
+  500 : #ab7d4e,
+  600 : #a47547,
+  700 : #9a6a3d,
+  800 : #916035,
+  900 : #804d25,
+  A100 : #ffdbc1,
+  A200 : #ffbd8e,
+  A400 : #ff9f5b,
+  A700 : #ff9141,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+$md-warn-palette: (
+  50 : #f9e0e0,
+  100 : #f0b3b3,
+  200 : #e68080,
+  300 : #db4d4d,
+  400 : #d42626,
+  500 : #cc0000,
+  600 : #c70000,
+  700 : #c00000,
+  800 : #b90000,
+  900 : #ad0000,
+  A100 : #ffd7d7,
+  A200 : #ffa4a4,
+  A400 : #ff7171,
+  A700 : #ff5858,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -12,11 +108,11 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$crousorama-front-primary: mat-palette($mat-indigo);
-$crousorama-front-accent: mat-palette($mat-pink, A200, A100, A400);
+$crousorama-front-primary: mat-palette($md-primary-palette);
+$crousorama-front-accent: mat-palette($md-accent-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$crousorama-front-warn: mat-palette($mat-red);
+$crousorama-front-warn: mat-palette($md-warn-palette);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $crousorama-front-theme: mat-light-theme($crousorama-front-primary, $crousorama-front-accent, $crousorama-front-warn);
@@ -28,5 +124,21 @@ $crousorama-front-theme: mat-light-theme($crousorama-front-primary, $crousorama-
 
 /* You can add global styles to this file, and also import other style files */
 
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+main {
+  height: calc(100vh - 64px);
+}
+
+@media screen and (max-width: 599px) {
+
+  main {
+    height: calc(100vh - 56px);
+  }
+}
+
+.full-width {
+  width: 100%;
+}

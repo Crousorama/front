@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'crousorama.appspot.com',
     messagingSenderId: '506023041643',
     appId: '1:506023041643:web:4a89156333a8c781502f2e'
-  }
+  },
+  apiUrl: 'http://localhost:5000/api'
 };
 
 /*

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {StockService} from '../../_services/stock.service';
+import {StockInfo} from '../../_models/StockInfo';
+import {DataUpdatedService} from '../../_services/data-updated.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  searchInput = '';
+  currentStock: StockInfo = null;
+  filteredOptions = [];
+  loading = false;
+
+  constructor(
+    private stockService: StockService,
+    private dataUpdatedService: DataUpdatedService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onChange(event) {
+    this.stockService.getSearchResult(event.target.value).subscribe((value: Array<object>) => {
+      this.filteredOptions = value;
+    });
+  }
+
+  onClickAutoComplete(value) {
+    this.loading = true;
+    this.stockService.getBySymbol(value.symbol).subscribe(stock => {
+      this.loading = false;
+      this.currentStock = stock;
+    });
+  }
+
+  onChangeRange(range) {
+    this.stockService.getBySymbol(this.currentStock.meta.symbol, range).subscribe(stock => {
+      this.currentStock = stock;
+      setTimeout(() => {
+        this.dataUpdatedService.dataUpdatedBS.next(true);
+        console.log('updated in search');
+      });
+    });
   }
 
 }
