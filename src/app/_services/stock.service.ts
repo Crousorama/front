@@ -15,7 +15,7 @@ export class StockService {
     return this.http.get(`${environment.apiUrl}/finance/search?q=${query}`);
   }
 
-  getBySymbol(symbol: string, range = '1d') {
+  getBySymbol(symbol: string, range = '5d') {
     return this.http.get(`${environment.apiUrl}/finance/indice/${symbol}?range=${range}`);
   }
 }

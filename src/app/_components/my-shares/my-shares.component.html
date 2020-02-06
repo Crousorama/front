@@ -3,16 +3,40 @@
 </div>
 <mat-list *ngIf="!loading">
   <h3 mat-subheader>PEA</h3>
-  <mat-list-item *ngFor="let stock of pea">
-    <mat-icon mat-list-icon>folder</mat-icon>
-    <h4 mat-line>{{stock.symbol}}</h4>
-    <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+  <mat-list-item *ngFor="let stock of pea" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center" fxFlex="75">
+      <div fxLayoutAlign="center center" class="icon-container">
+        <mat-icon mat-list-icon>access_time</mat-icon>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center start" class="user-stock-infos">
+        <h4 mat-line>{{stock.symbol}}</h4>
+        <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+      </div>
+    </div>
+    <div fxFlex="25" fxLayout="column" fxLayoutAlign="center end" class="stock-infos">
+      <h4 mat-line [ngClass]="{'positive': stock.variation > 0, 'negative': stock.variation < 0, 'neutral': stock.variation === 0}">
+        {{stock.variation | number: '1.2-2'}} %
+      </h4>
+      <p mat-line>Actuel : {{stock.currentValue}} €</p>
+    </div>
   </mat-list-item>
   <mat-divider></mat-divider>
   <h3 mat-subheader>Comptes titres</h3>
-  <mat-list-item *ngFor="let stock of titres">
-    <mat-icon mat-list-icon>note</mat-icon>
-    <h4 mat-line>{{stock.symbol}}</h4>
-    <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+  <mat-list-item *ngFor="let stock of titres" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center" fxFlex="75">
+      <div fxLayoutAlign="center center" class="icon-container">
+        <mat-icon mat-list-icon>access_time</mat-icon>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center start" class="user-stock-infos">
+        <h4 mat-line>{{stock.symbol}}</h4>
+        <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+      </div>
+    </div>
+    <div fxFlex="25" fxLayout="column" fxLayoutAlign="center end" class="stock-infos">
+      <h4 mat-line [ngClass]="{'positive': stock.variation > 0, 'negative': stock.variation < 0, 'neutral': stock.variation === 0}">
+        {{stock.variation | number: '1.2-2'}} %
+      </h4>
+      <p mat-line>Actuel : {{stock.currentValue}} €</p>
+    </div>
   </mat-list-item>
 </mat-list>

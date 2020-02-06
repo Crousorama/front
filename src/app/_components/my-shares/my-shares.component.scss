@@ -1,0 +1,26 @@
+.user-stock-infos {
+  h4, p {
+    margin: 5px;
+  }
+}
+
+.stock-infos {
+  h4, p {
+    margin: 5px;
+  }
+
+  .positive {
+    color: green;
+  }
+  .negative {
+    color: #f44336;
+  }
+}
+
+::ng-deep.mat-list-item-content {
+  width: 100%;
+}
+
+.icon-container {
+  padding: 5px;
+}

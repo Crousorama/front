@@ -28,7 +28,6 @@ export class StockInfoComponent implements OnInit {
   account = 'pea';
 
   ngOnInit() {
-    console.log('stockinfo', this.stockInfo);
     this.buyModel = {
       symbol: this.stockInfo.meta.symbol,
       qty: 0,
