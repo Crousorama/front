@@ -10,10 +10,17 @@ import {Observable} from 'rxjs';
 export class AuthService {
 
   private userObject: User;
+  resolveqUser;
+  accessToken = '';
+  qUser = new Promise(resolve => this.resolveqUser = resolve);
 
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(res => {
-      this.userObject = res;
+      res.getIdToken(true).then((token) => {
+        this.accessToken = token;
+        this.userObject = res;
+        this.resolveqUser(res);
+      });
     });
   }
 

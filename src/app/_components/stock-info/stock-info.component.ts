@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {StockInfo} from '../../_models/StockInfo';
 import {DataUpdatedService} from '../../_services/data-updated.service';
+import {MyStocksService} from '../../_services/my-stocks.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-stock-info',
@@ -10,25 +12,28 @@ import {DataUpdatedService} from '../../_services/data-updated.service';
 export class StockInfoComponent implements OnInit {
 
   constructor(
-    private dataUpdatedService: DataUpdatedService
+    private dataUpdatedService: DataUpdatedService,
+    private myStocksService: MyStocksService,
+    private snackBar: MatSnackBar
   ) {
   }
 
   @Input() stockInfo: StockInfo;
   @Output() intervalEmitter = new EventEmitter();
   chartData = [];
-  columnNames = ['Date', 'Prix'];
-  options = {
-    hAxis: {
-      title: 'Date'
-    },
-    vAxis: {
-      title: 'Prix'
-    },
-  };
+  loading = false;
+
+  buyModel = null;
+
+  account = 'pea';
 
   ngOnInit() {
     console.log('stockinfo', this.stockInfo);
+    this.buyModel = {
+      symbol: this.stockInfo.meta.symbol,
+      qty: 0,
+      bought_value: 0,
+    };
     this.createChartData();
     this.dataUpdatedService.dataUpdatedBS.subscribe((value) => {
       if (value) {
@@ -52,6 +57,19 @@ export class StockInfoComponent implements OnInit {
     });
     this.chartData = tmp;
     console.log('data updated in chart');
+  }
+
+  bought() {
+    this.loading = true;
+    this.myStocksService.buyStocks(this.account, this.buyModel).subscribe(() => {
+      this.buyModel = {
+        symbol: this.stockInfo.meta.symbol,
+        qty: 0,
+        bought_value: 0,
+      };
+      this.loading = false;
+      this.snackBar.open('Ajouté', 'Ok');
+    });
   }
 
 }

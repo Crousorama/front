@@ -10,6 +10,11 @@ import {
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 const modules = [
   MatButtonModule,
@@ -20,7 +25,11 @@ const modules = [
   MatInputModule,
   MatAutocompleteModule,
   MatProgressSpinnerModule,
-  MatChipsModule
+  MatChipsModule,
+  MatListModule,
+  MatTreeModule,
+  MatSelectModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

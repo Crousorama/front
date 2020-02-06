@@ -14,15 +14,18 @@ import { environment } from '../environments/environment';
 import { SearchComponent } from './_components/search/search.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { StockInfoComponent } from './_components/stock-info/stock-info.component';
+import { MySharesComponent } from './_components/my-shares/my-shares.component';
+import {TokenInterceptor} from './_interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    StockInfoComponent
+    StockInfoComponent,
+    MySharesComponent
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +43,12 @@ import { StockInfoComponent } from './_components/stock-info/stock-info.componen
     GoogleChartsModule.forRoot()
   ],
   providers: [
-    HttpClient
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

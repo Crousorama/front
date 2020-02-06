@@ -1,0 +1,18 @@
+<div *ngIf="loading" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-list *ngIf="!loading">
+  <h3 mat-subheader>PEA</h3>
+  <mat-list-item *ngFor="let stock of pea">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <h4 mat-line>{{stock.symbol}}</h4>
+    <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <h3 mat-subheader>Comptes titres</h3>
+  <mat-list-item *ngFor="let stock of titres">
+    <mat-icon mat-list-icon>note</mat-icon>
+    <h4 mat-line>{{stock.symbol}}</h4>
+    <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
+  </mat-list-item>
+</mat-list>

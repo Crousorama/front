@@ -5,12 +5,20 @@
   Crousorama
 </mat-toolbar>
 
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container>
   <mat-sidenav mode="over" [(opened)]="opened">
     <div *ngIf="user" fxLayout="column" fxLayoutAlign="center center" class="content-container">
       <img [src]="user.photoURL" alt="profile pic" />
       <h2>{{user.displayName}}</h2>
       <div class="divider"></div>
+      <div fxLayoutAlign="center center" fxLayout="column" class="links-container">
+        <button *ngFor="let link of links"
+                [ngClass]="{'selected': getUrl() === link.url}"
+                (click)="navigate(link.url)"
+                mat-button [routerLink]="link.url">
+          {{link.label}}
+        </button>
+      </div>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

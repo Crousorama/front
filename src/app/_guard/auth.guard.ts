@@ -22,13 +22,13 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    return this.authService.currentUserObservable.pipe(map((loggedIn) => {
+    return this.authService.qUser.then((loggedIn) => {
       if (!loggedIn) {
         this.router.navigate(['']);
         return false;
       } else {
         return true;
       }
-    }));
+    });
   }
 }

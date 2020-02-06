@@ -7,9 +7,20 @@ import {AuthService} from './_services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'crousorama-front';
   opened = false;
+
+  links = [
+    {
+      label: 'Rechercher',
+      url: '/search'
+    },
+    {
+      label: 'Mes actions',
+      url: '/my-shares'
+    }
+  ];
 
   constructor(
     private router: Router,
@@ -24,8 +35,17 @@ export class AppComponent implements OnInit{
     return this.router.url !== '/';
   }
 
+  getUrl() {
+    return this.router.url;
+  }
+
   toggleSidenav() {
     this.opened = !this.opened;
+  }
+
+  navigate(url) {
+    this.opened = false;
+    this.router.navigate([url]);
   }
 
   get user() {
