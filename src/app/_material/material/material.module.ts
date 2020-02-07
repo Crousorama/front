@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatChipsModule,
+  MatChipsModule, MatDialogModule,
   MatDividerModule,
   MatIconModule,
   MatProgressSpinnerModule
@@ -29,7 +29,8 @@ const modules = [
   MatListModule,
   MatTreeModule,
   MatSelectModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
 ];
 
 @NgModule({

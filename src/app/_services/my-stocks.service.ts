@@ -20,4 +20,8 @@ export class MyStocksService {
   buyStocks(account, stock) {
     return this.http.post(`${environment.apiUrl}/stock_users/${account}/${this.authService.user.email}`, stock);
   }
+
+  deleteStocks(account, symbol) {
+    return this.http.delete(`${environment.apiUrl}/stock_users/${account}/${this.authService.user.email}/${symbol}`);
+  }
 }

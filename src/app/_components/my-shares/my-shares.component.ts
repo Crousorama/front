@@ -5,6 +5,8 @@ import {map} from 'rxjs/operators';
 import {UserStock} from '../../_models/user-stock';
 import {StockService} from '../../_services/stock.service';
 import {Stock} from '../../_models/stock';
+import {MatDialog} from '@angular/material';
+import {ConfirmComponent} from './confirm/confirm.component';
 
 
 export interface Section {
@@ -27,7 +29,8 @@ export class MySharesComponent implements OnInit {
   constructor(
     private myStocksService: MyStocksService,
     private authService: AuthService,
-    private stockService: StockService
+    private stockService: StockService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -37,7 +40,6 @@ export class MySharesComponent implements OnInit {
         this.loading = false;
         this.pea = await this.initVariation(stocks['stocks'].pea);
         this.titres = await this.initVariation(stocks['stocks'].titres);
-        console.log('this.pea', this.pea);
       });
     });
   }
@@ -57,6 +59,24 @@ export class MySharesComponent implements OnInit {
       }));
     });
     return Promise.all(tabPromise);
+  }
+
+  deleteStock(account, stock, idx) {
+    this.dialog.open(ConfirmComponent, {
+      width: '250px',
+      height: '300px'
+    }).afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        console.log('deleting');
+        this.myStocksService.deleteStocks(account, stock.symbol).subscribe(() => {
+          if (account === 'pea') {
+            this.pea.splice(idx, 1);
+          } else {
+            this.titres.splice(idx, 1);
+          }
+        });
+      }
+    });
   }
 
 }

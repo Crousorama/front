@@ -1,6 +1,7 @@
 import {TradingPeriod} from './TradingPeriod';
 
 export interface StockMeta {
+  longname?: string;
   chartPreviousClose: number;
   currency: string;
   currentTradingPeriod: {post: TradingPeriod, pre: TradingPeriod, regular: TradingPeriod};

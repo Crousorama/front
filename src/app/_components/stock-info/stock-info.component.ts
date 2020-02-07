@@ -28,8 +28,10 @@ export class StockInfoComponent implements OnInit {
   account = 'pea';
 
   ngOnInit() {
+    console.log(this.stockInfo);
     this.buyModel = {
       symbol: this.stockInfo.meta.symbol,
+      fullName: this.stockInfo.meta.longname,
       qty: 0,
       bought_value: 0,
     };
@@ -65,6 +67,7 @@ export class StockInfoComponent implements OnInit {
         symbol: this.stockInfo.meta.symbol,
         qty: 0,
         bought_value: 0,
+        fullName: this.stockInfo.meta.longname,
       };
       this.loading = false;
       this.snackBar.open('Ajouté', 'Ok');

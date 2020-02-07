@@ -3,13 +3,15 @@
 </div>
 <mat-list *ngIf="!loading">
   <h3 mat-subheader>PEA</h3>
-  <mat-list-item *ngFor="let stock of pea" fxLayoutAlign="space-between center">
+  <mat-list-item *ngFor="let stock of pea; let $index" fxLayoutAlign="space-between center">
     <div fxLayoutAlign="start center" fxFlex="75">
       <div fxLayoutAlign="center center" class="icon-container">
-        <mat-icon mat-list-icon>access_time</mat-icon>
+        <button mat-icon-button color="warn" (click)="deleteStock('pea', stock, $index)">
+          <mat-icon mat-list-icon>delete</mat-icon>
+        </button>
       </div>
       <div fxLayout="column" fxLayoutAlign="center start" class="user-stock-infos">
-        <h4 mat-line>{{stock.symbol}}</h4>
+        <h4 mat-line>{{stock.fullName}}</h4>
         <p mat-line>Acheté au prix de {{stock.bought_value}} €</p>
       </div>
     </div>

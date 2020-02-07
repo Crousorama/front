@@ -18,6 +18,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/h
 import { StockInfoComponent } from './_components/stock-info/stock-info.component';
 import { MySharesComponent } from './_components/my-shares/my-shares.component';
 import {TokenInterceptor} from './_interceptor/token.interceptor';
+import { ConfirmComponent } from './_components/my-shares/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {TokenInterceptor} from './_interceptor/token.interceptor';
     HomeComponent,
     SearchComponent,
     StockInfoComponent,
-    MySharesComponent
+    MySharesComponent,
+    ConfirmComponent
   ],
   imports: [
     HttpClientModule,
@@ -50,6 +52,7 @@ import {TokenInterceptor} from './_interceptor/token.interceptor';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmComponent]
 })
 export class AppModule { }

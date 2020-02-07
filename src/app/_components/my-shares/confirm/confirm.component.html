@@ -1,0 +1,12 @@
+<div fxLayout="column" fxLayoutAlign="space-between center" class="main">
+  <h1 mat-dialog-title class="center-align">Suppression d'une action</h1>
+  <mat-dialog-content>
+    <p class="center-align">
+      Êtes-vous sûr de vouloir suppimer cette action ?
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayoutAlign="space-between center">
+    <button mat-button mat-dialog-close>Non</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="primary">Oui</button>
+  </mat-dialog-actions>
+</div>

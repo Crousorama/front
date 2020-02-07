@@ -31,8 +31,9 @@ export class SearchComponent implements OnInit {
 
   onClickAutoComplete(value) {
     this.loading = true;
-    this.stockService.getBySymbol(value.symbol).subscribe(stock => {
+    this.stockService.getBySymbol(value.symbol).subscribe((stock: StockInfo) => {
       this.loading = false;
+      stock.meta.longname = value.longname;
       this.currentStock = stock;
     });
   }
