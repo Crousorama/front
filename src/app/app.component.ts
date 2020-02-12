@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
 
   links = [
     {
+      label: 'Actualités',
+      url: '/news'
+    },
+    {
       label: 'Rechercher',
       url: '/search'
     },

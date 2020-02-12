@@ -37,9 +37,9 @@ export class MySharesComponent implements OnInit {
   ngOnInit() {
     this.authService.qUser.then(() => {
       this.myStocksService.listMyStocks().subscribe(async (stocks) => {
-        this.loading = false;
         this.pea = await this.initVariation(stocks['stocks'].pea);
         this.titres = await this.initVariation(stocks['stocks'].titres);
+        this.loading = false;
       });
     });
   }
@@ -49,7 +49,6 @@ export class MySharesComponent implements OnInit {
     stocks.forEach((stock: UserStock) => {
       tabPromise.push(new Promise(resolve => {
         this.stockService.getBySymbol(stock.symbol).subscribe((value: Stock) => {
-          console.log('value', value);
           let variation = value.meta.regularMarketPrice / stock.bought_value;
           variation = variation > 1 ? (variation - 1) * 100 : (1 - variation) * -100;
           stock.variation = variation;

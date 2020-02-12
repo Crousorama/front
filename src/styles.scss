@@ -146,3 +146,9 @@ main {
 .center-align {
   text-align: center;
 }
+
+.full-size {
+  width: 100vw;
+  height: calc(100vh - 64px);
+}
+

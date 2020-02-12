@@ -19,6 +19,8 @@ import { StockInfoComponent } from './_components/stock-info/stock-info.componen
 import { MySharesComponent } from './_components/my-shares/my-shares.component';
 import {TokenInterceptor} from './_interceptor/token.interceptor';
 import { ConfirmComponent } from './_components/my-shares/confirm/confirm.component';
+import { NewsComponent } from './_components/news/news.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { ConfirmComponent } from './_components/my-shares/confirm/confirm.compon
     SearchComponent,
     StockInfoComponent,
     MySharesComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    NewsComponent
   ],
   imports: [
     HttpClientModule,

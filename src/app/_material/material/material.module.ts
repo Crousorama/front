@@ -3,7 +3,7 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatChipsModule, MatDialogModule,
-  MatDividerModule,
+  MatDividerModule, MatExpansionModule,
   MatIconModule,
   MatProgressSpinnerModule
 } from '@angular/material';
@@ -30,7 +30,8 @@ const modules = [
   MatTreeModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatExpansionModule
 ];
 
 @NgModule({

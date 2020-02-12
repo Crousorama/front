@@ -17,11 +17,17 @@
       </div>
     </mat-chip-list>
   </div>
-  <div fxLayoutAlign="center center">
+  <div fxLayoutAlign="center center" fxLayout="column">
+    <h2>Cours de l'action</h2>
     <google-chart [dynamicResize]="true" [type]="'LineChart'" [data]="chartData"></google-chart>
   </div>
+  <div fxLayoutAlign="center center" fxLayout="column">
+    <h2>Résultats de l'entreprise</h2>
+    <google-chart [dynamicResize]="true" [type]="'LineChart'" [data]="resultsData"></google-chart>
+  </div>
 
-  <div fxLayout="column" fxLayoutAlign="center center">
+
+  <div fxLayout="column" fxLayoutAlign="center center" class="bought-container">
     <span>Acheté </span>
     <mat-form-field>
       <input matInput placeholder="Nombre" type="number" [(ngModel)]="buyModel.qty">

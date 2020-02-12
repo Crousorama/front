@@ -1,0 +1,25 @@
+<div *ngIf="loading" class="full-size" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-accordion *ngIf="!loading">
+  <mat-expansion-panel *ngFor="let n of news">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ (n.title.length > 6) ? (n.title | slice:0:20) + '..' : (n.title) }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ n.publishDateStr }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h3>{{n.title}}</h3>
+      <p>{{n.summary}}</p>
+      <div fxLayoutAlign="space-between center" class="full-width article-footer">
+        <span>
+          {{ getDate(n.publishDate) }}
+        </span>
+        <a [href]="n.canonicalUrl" target="_blank">Voir l'article</a>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

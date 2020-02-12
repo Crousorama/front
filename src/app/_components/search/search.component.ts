@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
   }
 
   onChangeRange(range) {
-    this.stockService.getBySymbol(this.currentStock.meta.symbol, range).subscribe(stock => {
+    this.stockService.getBySymbol(this.currentStock.meta.symbol, range).subscribe((stock: StockInfo) => {
       this.currentStock = stock;
       setTimeout(() => {
         this.dataUpdatedService.dataUpdatedBS.next(true);

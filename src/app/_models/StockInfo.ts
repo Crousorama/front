@@ -1,5 +1,7 @@
 import {Quote} from './Quote';
 import {StockMeta} from './StockMeta';
+import {EarningChart} from './earning-chart';
+import {FinancialChart} from './financials-chart';
 
 export interface StockInfo {
   indicators?: {
@@ -8,4 +10,6 @@ export interface StockInfo {
   };
   meta?: StockMeta;
   timestamp?: Array<number>;
+  earningsChart: EarningChart;
+  financialsChart: FinancialChart;
 }

@@ -21,10 +21,11 @@ export class StockInfoComponent implements OnInit {
   @Input() stockInfo: StockInfo;
   @Output() intervalEmitter = new EventEmitter();
   chartData = [];
+  resultsData = [];
   loading = false;
 
   buyModel = null;
-
+  currentRevenueFilter = 'quarterly';
   account = 'pea';
 
   ngOnInit() {
@@ -36,6 +37,7 @@ export class StockInfoComponent implements OnInit {
       bought_value: 0,
     };
     this.createChartData();
+    this.createResultsCharts();
     this.dataUpdatedService.dataUpdatedBS.subscribe((value) => {
       if (value) {
         this.createChartData();
@@ -57,7 +59,15 @@ export class StockInfoComponent implements OnInit {
       ]);
     });
     this.chartData = tmp;
-    console.log('data updated in chart');
+  }
+
+  createResultsCharts() {
+    const tmp = [
+    ];
+    this.stockInfo.financialsChart[this.currentRevenueFilter].forEach((data) => {
+      tmp.push([data.date, data.earnings.raw, data.revenue.raw]);
+    });
+    this.resultsData = [...tmp];
   }
 
   bought() {
