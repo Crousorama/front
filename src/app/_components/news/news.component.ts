@@ -18,15 +18,17 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.newsApiService.getNews().subscribe((news: News[]) => {
-      this.news = news.sort((a, b) => {
-        return new Date(b.publishDate).getDate() - new Date(a.publishDate).getDate();
-      });
+      this.news = news;
       this.loading = false;
     });
   }
 
   getDate(date) {
     return new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
+  }
+
+  redirect(link) {
+    window.location.href = link;
   }
 
 }

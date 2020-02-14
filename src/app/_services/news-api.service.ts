@@ -12,6 +12,6 @@ export class NewsApiService {
   ) { }
 
   getNews() {
-    return this.http.get(`${environment.apiUrl}/finance/news`);
+    return this.http.get(`${environment.apiUrl}/news`);
   }
 }
