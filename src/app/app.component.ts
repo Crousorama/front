@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
     {
       label: 'Mes actions',
       url: '/my-shares'
+    },
+    {
+      label: 'Calendrier de la bourse',
+      url: '/calendar'
     }
   ];
 
