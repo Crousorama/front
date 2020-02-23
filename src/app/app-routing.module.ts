@@ -5,6 +5,7 @@ import {SearchComponent} from './_components/search/search.component';
 import {AuthGuard} from './_guard/auth.guard';
 import {MySharesComponent} from './_components/my-shares/my-shares.component';
 import {NewsComponent} from './_components/news/news.component';
+import {CalendarComponent} from './_components/calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
   {path: 'my-shares', component: MySharesComponent, canActivate: [AuthGuard]},
   {path: 'news', component: NewsComponent, canActivate: [AuthGuard]},
+  {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

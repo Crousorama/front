@@ -1,0 +1,6 @@
+<div *ngFor="let key of getKeys(economicalObject)">
+  <mat-list-item *ngFor="let event of economicalObject[key]">
+    <h4 mat-line>{{event}}</h4>
+  </mat-list-item>
+</div>
+

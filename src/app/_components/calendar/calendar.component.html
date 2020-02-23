@@ -1,0 +1,18 @@
+<mat-tab-group #tabGroup>
+  <mat-tab *ngFor="let day of daysKeys"
+           [label]="day.original.replace('Journée du ', '')">
+    <mat-list (swiperight)="previous()"
+              (swipeleft)="next()">
+      <div *ngFor="let category of getKeys(calendar[day.original])">
+        <h3 mat-subheader>{{category}}</h3>
+        <app-economical *ngIf="!isInstanceOfArray(calendar[day.original][category])"
+                        [economicalObject]="calendar[day.original][category]">
+        </app-economical>
+        <app-companies *ngIf="isInstanceOfArray(calendar[day.original][category])"
+                       [eventsArray]="calendar[day.original][category]">
+        </app-companies>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </mat-tab>
+</mat-tab-group>

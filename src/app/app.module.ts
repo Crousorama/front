@@ -20,6 +20,19 @@ import { MySharesComponent } from './_components/my-shares/my-shares.component';
 import {TokenInterceptor} from './_interceptor/token.interceptor';
 import { ConfirmComponent } from './_components/my-shares/confirm/confirm.component';
 import { NewsComponent } from './_components/news/news.component';
+import { CalendarComponent } from './_components/calendar/calendar.component';
+import { EconomicalComponent } from './_components/calendar/economical/economical.component';
+import { CompaniesComponent } from './_components/calendar/companies/companies.component';
+
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 
 @NgModule({
@@ -30,7 +43,10 @@ import { NewsComponent } from './_components/news/news.component';
     StockInfoComponent,
     MySharesComponent,
     ConfirmComponent,
-    NewsComponent
+    NewsComponent,
+    CalendarComponent,
+    EconomicalComponent,
+    CompaniesComponent
   ],
   imports: [
     HttpClientModule,
@@ -53,6 +69,10 @@ import { NewsComponent } from './_components/news/news.component';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
     }
   ],
   bootstrap: [AppComponent],

@@ -5,7 +5,7 @@ import {
   MatChipsModule, MatDialogModule,
   MatDividerModule, MatExpansionModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule, MatTabsModule
 } from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -32,7 +32,8 @@ const modules = [
   MatSnackBarModule,
   MatDialogModule,
   MatExpansionModule,
-  MatCardModule
+  MatCardModule,
+  MatTabsModule,
 ];
 
 @NgModule({
