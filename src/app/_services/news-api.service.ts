@@ -14,4 +14,8 @@ export class NewsApiService {
   getNews() {
     return this.http.get(`${environment.apiUrl}/news`);
   }
+
+  getRealtimeNews() {
+    return this.http.get(`${environment.apiUrl}/news/realtime`);
+  }
 }

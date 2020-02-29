@@ -1,0 +1,14 @@
+mat-list-item, ::ng-deep.mat-list-item-content {
+  height: auto !important;
+  padding: 5px !important;
+
+  .title-container {
+    padding: 10px;
+    width: 80vw;
+  }
+
+  .time-container {
+    padding: 5px;
+    width: 20vw;
+  }
+}

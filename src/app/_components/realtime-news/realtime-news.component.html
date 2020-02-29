@@ -1,0 +1,13 @@
+<div *ngIf="loading" class="full-size" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-list *ngIf="!loading">
+  <mat-list-item *ngFor="let n of news">
+    <span class="time-container">
+      {{n.date | date : 'shortTime'}}
+    </span>
+    <span class="title-container">{{n.title}}</span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

@@ -12,6 +12,6 @@ export class CalendarService {
   ) { }
 
   getCalendar() {
-    return this.http.get(`${environment.apiUrl}/finance/agenda`);
+    return this.http.get(`${environment.apiUrl}/agenda`);
   }
 }

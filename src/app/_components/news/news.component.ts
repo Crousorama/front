@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {NewsApiService} from '../../_services/news-api.service';
-import {News} from '../../_models/news';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -9,26 +7,11 @@ import {News} from '../../_models/news';
 })
 export class NewsComponent implements OnInit {
 
-  constructor(
-    private newsApiService: NewsApiService
-  ) { }
 
-  news: News[];
-  loading = true;
+  constructor() {
+  }
 
   ngOnInit() {
-    this.newsApiService.getNews().subscribe((news: News[]) => {
-      this.news = news;
-      this.loading = false;
-    });
-  }
-
-  getDate(date) {
-    return new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
-  }
-
-  redirect(link) {
-    window.location.href = link;
   }
 
 }
