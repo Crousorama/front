@@ -2,6 +2,12 @@
   <mat-spinner></mat-spinner>
 </div>
 
+<div fxLayoutAlign="end center">
+  <button mat-icon-button (click)="getNews()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>
+
 <mat-list *ngIf="!loading">
   <mat-list-item *ngFor="let n of news">
     <span class="time-container">

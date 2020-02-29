@@ -18,8 +18,12 @@ export class RealtimeNewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getNews();
+  }
+
+  getNews() {
+    this.loading = true;
     this.newsApiService.getRealtimeNews().subscribe((news: RealtimeNews[]) => {
-      console.log('news', news);
       this.news = news.map(n => {
         n.date = new Date(n.date);
         return n;
