@@ -7,3 +7,19 @@
 mat-card {
   margin: 20px;
 }
+
+img {
+  width: 11rem;
+}
+
+::ng-deep.mat-card-header-text {
+  margin: 0 !important;
+}
+
+.header-text-container {
+  padding: 10px;
+}
+
+p {
+  padding: 0 10px;
+}

@@ -3,4 +3,5 @@ export interface News {
   title?: string;
   summary?: string;
   url?: string;
+  img?: string;
 }
