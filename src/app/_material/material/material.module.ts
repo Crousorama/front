@@ -4,7 +4,7 @@ import {
   MatButtonModule, MatCardModule,
   MatChipsModule, MatDialogModule,
   MatDividerModule, MatExpansionModule,
-  MatIconModule,
+  MatIconModule, MatProgressBarModule,
   MatProgressSpinnerModule, MatTabsModule
 } from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -34,6 +34,7 @@ const modules = [
   MatExpansionModule,
   MatCardModule,
   MatTabsModule,
+  MatProgressBarModule
 ];
 
 @NgModule({

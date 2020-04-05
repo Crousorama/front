@@ -1,14 +1,10 @@
-<div *ngIf="loading" class="full-size" fxLayoutAlign="center center">
-  <mat-spinner></mat-spinner>
-</div>
-
+<mat-progress-bar class="full-width" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div fxLayoutAlign="end center">
   <button mat-icon-button (click)="getNews()">
     <mat-icon>refresh</mat-icon>
   </button>
 </div>
-
-<mat-list *ngIf="!loading">
+<mat-list>
   <mat-list-item *ngFor="let n of news">
     <span class="time-container">
       {{n.date | date : 'shortTime'}}

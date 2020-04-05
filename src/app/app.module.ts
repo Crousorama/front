@@ -28,6 +28,7 @@ import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { RealtimeNewsComponent } from './_components/realtime-news/realtime-news.component';
 import { LatestNewsComponent } from './_components/latest-news/latest-news.component';
+import { PalmaresComponent } from './_components/palmares/palmares.component';
 
 
 export class MyHammerConfig extends HammerGestureConfig {
@@ -53,7 +54,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     EconomicalComponent,
     CompaniesComponent,
     RealtimeNewsComponent,
-    LatestNewsComponent
+    LatestNewsComponent,
+    PalmaresComponent
   ],
   imports: [
     HttpClientModule,

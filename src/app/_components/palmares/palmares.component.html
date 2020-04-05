@@ -1,0 +1,39 @@
+<div class="main full-width" *ngIf="!loading" fxLayout="column">
+  <div class="full-width" *ngFor="let p of palmares">
+    <div class="palmares full-width" fxLayout="row">
+      <div fxFlex="10" fxLayoutAlign="center center">
+        <mat-icon mat-list-icon class="green" *ngIf="isRaising(p)">trending_up</mat-icon>
+        <mat-icon mat-list-icon class="red" *ngIf="!isRaising(p)">trending_down</mat-icon>
+      </div>
+      <div fxFlex="70" fxLayout="column">
+        <h3>{{p.indice}}</h3>
+        <h4>{{p.meta}}</h4>
+      </div>
+      <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between end">
+        <h3>{{p.value}}</h3>
+        <h4 [ngClass]="{'green': isRaising(p), 'red': !isRaising(p)}">{{p.variation}}</h4>
+      </div>
+    </div>
+    <mat-divider class="full-width"></mat-divider>
+  </div>
+  <!--<mat-list class="full-width">
+    <div mat-subheader>Palmares</div>
+    <mat-list-item *ngFor="let p of palmares">
+      <mat-icon mat-list-icon class="green" *ngIf="isRaising(p)">trending_up</mat-icon>
+      <mat-icon mat-list-icon class="red" *ngIf="!isRaising(p)">trending_down</mat-icon>
+      <div fxLayout="row">
+        <div fxFlex="80">
+          <div mat-line>{{p.indice}}</div>
+          <div mat-line> {{p.meta}} </div>
+        </div>
+        <div fxFlex="20" fxLayout="column">
+          <span>test</span>
+          <span>test</span>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>-->
+</div>
+<div class="main full-width" fxLayoutAlign="center center" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>

@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
       url: '/news'
     },
     {
+      label: 'Palmarès',
+      url: '/palmares'
+    },
+    {
       label: 'Rechercher',
       url: '/search'
     },
