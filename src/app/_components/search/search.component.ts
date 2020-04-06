@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StockService} from '../../_services/stock.service';
 import {StockInfo} from '../../_models/StockInfo';
 import {DataUpdatedService} from '../../_services/data-updated.service';
+import {ActivatedRoute, Params, Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -17,10 +18,20 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private stockService: StockService,
-    private dataUpdatedService: DataUpdatedService
-  ) { }
+    private dataUpdatedService: DataUpdatedService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe(queryParams => {
+      const query = queryParams.get('query');
+      if (query) {
+        this.getBySymbol(query);
+      }
+      console.log(queryParams.get('query'));
+    });
   }
 
   onChange(event) {
@@ -30,10 +41,21 @@ export class SearchComponent implements OnInit {
   }
 
   onClickAutoComplete(value) {
+    const queryParams: Params = {query: value.symbol};
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams,
+      });
+    this.getBySymbol(value.symbol);
+  }
+
+  getBySymbol(symbol) {
     this.loading = true;
-    this.stockService.getBySymbol(value.symbol).subscribe((stock: StockInfo) => {
+    this.stockService.getBySymbol(symbol).subscribe((stock: StockInfo) => {
       this.loading = false;
-      stock.meta.longname = value.longname;
+      stock.meta.longname = '';
       this.currentStock = stock;
     });
   }
@@ -43,7 +65,6 @@ export class SearchComponent implements OnInit {
       this.currentStock = stock;
       setTimeout(() => {
         this.dataUpdatedService.dataUpdatedBS.next(true);
-        console.log('updated in search');
       });
     });
   }
