@@ -1,0 +1,18 @@
+<mat-accordion *ngIf="palmaresDividend && palmaresDividend.length > 0">
+  <mat-expansion-panel *ngFor="let d of palmaresDividend">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{d['Libellé']}}
+      </mat-panel-title>
+      <mat-panel-description [ngClass]="d.class">
+        {{d["Var."]}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="column">
+      <p *ngFor="let key of getKeys(d)">
+        <b>{{key}} : </b><span [ngClass]="{'green': d[key].includes('+'), 'red': d[key].includes('-')}">{{d[key]}}</span>
+      </p>
+    </div>
+  </mat-expansion-panel>
+
+</mat-accordion>

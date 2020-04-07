@@ -16,23 +16,6 @@
     </div>
     <mat-divider class="full-width"></mat-divider>
   </div>
-  <!--<mat-list class="full-width">
-    <div mat-subheader>Palmares</div>
-    <mat-list-item *ngFor="let p of palmares">
-      <mat-icon mat-list-icon class="green" *ngIf="isRaising(p)">trending_up</mat-icon>
-      <mat-icon mat-list-icon class="red" *ngIf="!isRaising(p)">trending_down</mat-icon>
-      <div fxLayout="row">
-        <div fxFlex="80">
-          <div mat-line>{{p.indice}}</div>
-          <div mat-line> {{p.meta}} </div>
-        </div>
-        <div fxFlex="20" fxLayout="column">
-          <span>test</span>
-          <span>test</span>
-        </div>
-      </div>
-    </mat-list-item>
-  </mat-list>-->
 </div>
 <div class="main full-width" fxLayoutAlign="center center" *ngIf="loading">
   <mat-spinner></mat-spinner>

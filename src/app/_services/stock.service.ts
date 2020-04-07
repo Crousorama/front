@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Palmares} from '../_models/palmares';
 import {map} from 'rxjs/operators';
+import {PalmaresDividend} from '../_models/palmares-dividend';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,9 @@ export class StockService {
 
   getPalmares(): Observable<Palmares[]> {
     return this.http.get(`${environment.apiUrl}/finance/palmares`).pipe(map((palmares: Palmares[]) => palmares));
+  }
+
+  getPalmaresDividend(page = 1) {
+    return this.http.get(`${environment.apiUrl}/finance/palmares_dividend?page=${page}`).pipe(map((res: PalmaresDividend[]) => res));
   }
 }
