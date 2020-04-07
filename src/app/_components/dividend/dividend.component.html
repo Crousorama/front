@@ -14,5 +14,5 @@
       </p>
     </div>
   </mat-expansion-panel>
-
 </mat-accordion>
+<mat-paginator [length]="100" [pageSize]="palmaresDividend.length" (page)="changePage($event)"></mat-paginator>

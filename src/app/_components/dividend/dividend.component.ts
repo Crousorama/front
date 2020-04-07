@@ -16,8 +16,16 @@ export class DividendComponent implements OnInit {
   palmaresDividend: PalmaresDividend[] = [];
 
   async ngOnInit() {
+    await this.loadPage(1);
+  }
+
+  getKeys(d: PalmaresDividend) {
+    return Object.keys(d).filter(k => !['class', 'Libellé'].includes(k));
+  }
+
+  async loadPage(pageIndex) {
+    const tmp = await this.stocksService.getPalmaresDividend(pageIndex).toPromise();
     this.palmaresDividend = [];
-    const tmp = await this.stocksService.getPalmaresDividend(1).toPromise();
     tmp.forEach((d, idx) => {
       if (!d['Var.']) {
         return;
@@ -27,8 +35,9 @@ export class DividendComponent implements OnInit {
     });
   }
 
-  getKeys(d: PalmaresDividend) {
-    return Object.keys(d).filter(k => !['class', 'Libellé'].includes(k));
+  changePage(event) {
+    console.log('event', event);
+    this.loadPage(event.pageIndex + 1);
   }
 
 }
