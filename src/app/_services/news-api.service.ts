@@ -11,8 +11,8 @@ export class NewsApiService {
     private http: HttpClient
   ) { }
 
-  getNews() {
-    return this.http.get(`${environment.apiUrl}/news`);
+  getNews(page = 1) {
+    return this.http.get(`${environment.apiUrl}/news?page=${page}`);
   }
 
   getRealtimeNews() {
