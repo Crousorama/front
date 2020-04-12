@@ -1,0 +1,11 @@
+.info-container {
+  padding-left: 10px;
+
+  & > div {
+    height: 48px;
+
+    b, span {
+      font-size: large;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="full-width" fxLayoutAlign="center center" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading" fxLayout="column" fxLayoutAlign="space-evenly start" class="info-container">
+  <div fxLayoutAlign="start center">
+    <b>Ouverture : </b><span>{{stockCours.Ouverture}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>Performance ouverture : </b><span [ngClass]="{'green': stockCours['Perf Ouverture'].includes('+'), 'red': stockCours['Perf Ouverture'].includes('-')}">{{stockCours["Perf Ouverture"]}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>+ Haut : </b><span>{{stockCours["+ Haut"]}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>+ Bas : </b><span>{{stockCours["+ Bas"]}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>Clôture veille : </b><span>{{stockCours["Clôture veille"]}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>Volume : </b><span>{{stockCours.Volume}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>Capital échangé : </b><span [ngClass]="{'green': stockCours['Capi échangé'].includes('+'), 'red': stockCours['Capi échangé'].includes('-')}">{{stockCours["Capi échangé"]}}</span>
+  </div>
+  <div fxLayoutAlign="start center">
+    <b>Capital : </b><span>{{stockCours.Capi}}</span>
+  </div>
+</div>

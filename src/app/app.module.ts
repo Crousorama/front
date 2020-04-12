@@ -11,11 +11,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { SearchComponent } from './_components/search/search.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
-import { StockInfoComponent } from './_components/stock-info/stock-info.component';
 import { MySharesComponent } from './_components/my-shares/my-shares.component';
 import {TokenInterceptor} from './_interceptor/token.interceptor';
 import { ConfirmComponent } from './_components/my-shares/confirm/confirm.component';
@@ -31,6 +29,16 @@ import { LatestNewsComponent } from './_components/latest-news/latest-news.compo
 import { PalmaresComponent } from './_components/palmares/palmares.component';
 import { PalmaresGlobalComponent } from './_components/palmares-global/palmares-global.component';
 import { DividendComponent } from './_components/dividend/dividend.component';
+import { BfmSearchComponent } from './_components/bfm-search/bfm-search.component';
+import { StockComponent } from './_components/stock/stock.component';
+import { CoursComponent } from './_components/stock/cours/cours.component';
+import { GraphiqueComponent } from './_components/stock/graphique/graphique.component';
+import { SafePipe } from './_pipes/safe.pipe';
+import { ActualitesComponent } from './_components/stock/actualites/actualites.component';
+import { ConseilsComponent } from './_components/stock/conseils/conseils.component';
+import { AgendaComponent } from './_components/stock/agenda/agenda.component';
+import { DividendesComponent } from './_components/stock/dividendes/dividendes.component';
+import { SocieteComponent } from './_components/stock/societe/societe.component';
 
 
 export class MyHammerConfig extends HammerGestureConfig {
@@ -47,8 +55,6 @@ export class MyHammerConfig extends HammerGestureConfig {
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent,
-    StockInfoComponent,
     MySharesComponent,
     ConfirmComponent,
     NewsComponent,
@@ -59,7 +65,17 @@ export class MyHammerConfig extends HammerGestureConfig {
     LatestNewsComponent,
     PalmaresComponent,
     PalmaresGlobalComponent,
-    DividendComponent
+    DividendComponent,
+    BfmSearchComponent,
+    StockComponent,
+    CoursComponent,
+    GraphiqueComponent,
+    SafePipe,
+    ActualitesComponent,
+    ConseilsComponent,
+    AgendaComponent,
+    DividendesComponent,
+    SocieteComponent
   ],
   imports: [
     HttpClientModule,

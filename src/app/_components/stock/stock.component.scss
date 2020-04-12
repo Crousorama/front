@@ -1,0 +1,14 @@
+main {
+  height: calc(100vh - 56px);
+
+  .name-container {
+    padding: 0 10px;
+  }
+
+  .values-container {
+
+    & > * {
+      margin: 5px 0;
+    }
+  }
+}

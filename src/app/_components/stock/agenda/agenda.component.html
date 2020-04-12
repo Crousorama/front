@@ -1,0 +1,18 @@
+<div class="full-width" fxLayoutAlign="center center" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-list *ngIf="!loading">
+  <div mat-subheader>Évènements à venir</div>
+  <mat-list-item *ngFor="let event of agenda.upcoming">
+    <mat-icon mat-list-icon>access_alarms</mat-icon>
+    <div mat-line>{{event.title}}</div>
+    <div mat-line> {{event.date}} </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <div mat-subheader>Évènements passés</div>
+  <mat-list-item *ngFor="let event of agenda.past">
+    <mat-icon mat-list-icon>timelapse</mat-icon>
+    <div mat-line>{{event.title}}</div>
+    <div mat-line> {{event.date}} </div>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,12 @@
+<div class="full-width" fxLayoutAlign="center center" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading" class="full-width">
+  <mat-card class="full-width">
+    <mat-card-content>
+      <p>
+        {{companyData.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
@@ -13,10 +13,7 @@ export class StockService {
 
   constructor(
     private http: HttpClient
-  ) { }
-
-  getSearchResult(query: string) {
-    return this.http.get(`${environment.apiUrl}/finance/search?q=${query}`);
+  ) {
   }
 
   getBySymbol(symbol: string, range = '5d') {
@@ -30,4 +27,9 @@ export class StockService {
   getPalmaresDividend(page = 1) {
     return this.http.get(`${environment.apiUrl}/finance/palmares_dividend?page=${page}`).pipe(map((res: PalmaresDividend[]) => res));
   }
+
+  getTabInfo(stockId, tab, page = null) {
+    return this.http.get(`${environment.apiUrl}/finance/stock/${stockId}/${tab}${page ? `?page=${page}` : ''}`);
+  }
+
 }

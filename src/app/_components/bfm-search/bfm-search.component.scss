@@ -1,0 +1,19 @@
+.main-container {
+  height: calc(100vh - 56px);
+  width: 100%;
+
+  mat-form-field {
+    width: 90%;
+  }
+
+  .search-results-container {
+    overflow-y: auto;
+
+    .search-item {
+      min-height: 64px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+
+}
+

@@ -1,0 +1,36 @@
+<main>
+  <div class="full-width name-container" fxLayoutAlign="space-between center">
+    <h1>{{name}}</h1>
+    <div fxLayout="column" fxLayoutAlign="center center" class="values-container">
+      <h3>{{price}}</h3>
+      <h4 *ngIf="variation"
+          [ngClass]="{'green': variation.includes('+'), 'red': variation.includes('-')}">
+        {{variation}}
+      </h4>
+    </div>
+  </div>
+  <mat-tab-group class="full-width" (selectedIndexChange)="selectedIndex = $event">
+    <mat-tab label="Cours">
+      <app-cours (stockCoursLoadedEvent)="stockLoaded($event)"
+                 *ngIf="isToBeDisplayed(0)"></app-cours>
+    </mat-tab>
+    <mat-tab label="Graphique">
+      <app-graphique *ngIf="isToBeDisplayed(1)"></app-graphique>
+    </mat-tab>
+    <mat-tab label="Actualités">
+      <app-actualites *ngIf="isToBeDisplayed(2)"></app-actualites>
+    </mat-tab>
+    <mat-tab label="Conseils">
+      <app-conseils *ngIf="isToBeDisplayed(3)"></app-conseils>
+    </mat-tab>
+    <mat-tab label="Agenda">
+      <app-agenda *ngIf="isToBeDisplayed(4)"></app-agenda>
+    </mat-tab>
+    <mat-tab label="Dividendes">
+      <app-dividendes *ngIf="isToBeDisplayed(5)"></app-dividendes>
+    </mat-tab>
+    <mat-tab label="Société">
+      <app-societe *ngIf="isToBeDisplayed(6)"></app-societe>
+    </mat-tab>
+  </mat-tab-group>
+</main>

@@ -5,7 +5,7 @@ import {
   MatChipsModule, MatDialogModule,
   MatDividerModule, MatExpansionModule,
   MatIconModule, MatPaginatorModule, MatProgressBarModule,
-  MatProgressSpinnerModule, MatTabsModule
+  MatProgressSpinnerModule, MatTableModule, MatTabsModule
 } from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -14,6 +14,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 const modules = [
@@ -35,7 +36,9 @@ const modules = [
   MatCardModule,
   MatTabsModule,
   MatProgressBarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  ScrollingModule,
+  MatTableModule
 ];
 
 @NgModule({
