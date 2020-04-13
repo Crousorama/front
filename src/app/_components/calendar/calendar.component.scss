@@ -9,3 +9,7 @@ mat-tab-group {
     touch-action: pan-y !important;
   }
 }
+
+main {
+  height: calc(100vh - 56px);
+}

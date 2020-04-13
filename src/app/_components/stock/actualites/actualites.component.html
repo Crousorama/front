@@ -4,12 +4,12 @@
 <div class="full-width" *ngIf="!loading">
   <mat-list class="full-width">
     <div mat-subheader>Actualités</div>
-    <mat-list-item *ngFor="let article of news" fxLayout="row">
-      <div fxFlex="20">
-        <span>{{article.date}}</span>
-      </div>
-      <div fxFlex="80">
+    <mat-list-item *ngFor="let article of news">
+      <div mat-line>
         <a class="full-width" [href]="article.link" target="_self">{{article.title}}</a>
+      </div>
+      <div mat-line>
+        {{article.date}}
       </div>
       <mat-divider class="full-width"></mat-divider>
     </mat-list-item>

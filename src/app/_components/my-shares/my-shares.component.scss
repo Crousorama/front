@@ -8,13 +8,6 @@
   h4, p {
     margin: 5px;
   }
-
-  .positive {
-    color: green;
-  }
-  .negative {
-    color: #f44336;
-  }
 }
 
 ::ng-deep.mat-list-item-content {
@@ -23,4 +16,8 @@
 
 .icon-container {
   padding: 5px;
+}
+
+main {
+  height: calc(100vh - 56px);
 }
