@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="space-between center" class="bought-container">
+  <span>Acheté </span>
+  <mat-form-field>
+    <input matInput placeholder="Nombre" type="number" [(ngModel)]="buyModel.qty">
+  </mat-form-field>
+  <span>au prix de</span>
+  <mat-form-field>
+    <input matInput placeholder="Prix" type="number" [(ngModel)]="buyModel.bought_value">
+    <span matSuffix>€</span>
+  </mat-form-field>
+  <span>sur le compte</span>
+  <mat-form-field>
+    <mat-label>Type de compte</mat-label>
+    <mat-select [(ngModel)]="account">
+      <mat-option [value]="'pea'">
+        PEA
+      </mat-option>
+      <mat-option [value]="'titres'">
+        Compte titres
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="bought()" *ngIf="!loading">
+    Valider
+  </button>
+  <mat-spinner [diameter]="32" *ngIf="loading"></mat-spinner>
+</div>
+

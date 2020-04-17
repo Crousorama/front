@@ -39,6 +39,7 @@ import { ConseilsComponent } from './_components/stock/conseils/conseils.compone
 import { AgendaComponent } from './_components/stock/agenda/agenda.component';
 import { DividendesComponent } from './_components/stock/dividendes/dividendes.component';
 import { SocieteComponent } from './_components/stock/societe/societe.component';
+import { BuyStockComponent } from './_components/_dialogs/buy-stock/buy-stock.component';
 
 
 export class MyHammerConfig extends HammerGestureConfig {
@@ -75,7 +76,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     ConseilsComponent,
     AgendaComponent,
     DividendesComponent,
-    SocieteComponent
+    SocieteComponent,
+    BuyStockComponent
   ],
   imports: [
     HttpClientModule,
@@ -105,6 +107,6 @@ export class MyHammerConfig extends HammerGestureConfig {
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmComponent]
+  entryComponents: [ConfirmComponent, BuyStockComponent]
 })
 export class AppModule { }

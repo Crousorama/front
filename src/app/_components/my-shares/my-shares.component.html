@@ -4,10 +4,10 @@
   </div>
   <mat-list *ngIf="!loading">
     <h3 mat-subheader>PEA</h3>
-    <mat-list-item *ngFor="let stock of pea; let $index" fxLayoutAlign="space-between center">
+    <mat-list-item *ngFor="let stock of pea; index as index" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center" fxFlex="75">
         <div fxLayoutAlign="center center" class="icon-container">
-          <button mat-icon-button color="warn" (click)="deleteStock('pea', stock, $index)">
+          <button mat-icon-button color="warn" (click)="deleteStock('pea', stock, index)">
             <mat-icon mat-list-icon>delete</mat-icon>
           </button>
         </div>

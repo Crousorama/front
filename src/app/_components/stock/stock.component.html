@@ -1,6 +1,12 @@
 <main>
   <div class="full-width name-container" fxLayoutAlign="space-between center">
-    <h1>{{name}}</h1>
+    <div fxLayoutAlign="space-around center">
+      <h1>{{name}}</h1>
+      <button mat-icon-button (click)="openBuyDialog()">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
+
     <div fxLayout="column" fxLayoutAlign="center center" class="values-container">
       <h3>{{price}}</h3>
       <h4 *ngIf="variation"

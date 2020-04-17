@@ -60,19 +60,15 @@ export class MySharesComponent implements OnInit {
     return Promise.all(tabPromise);
   }
 
-  deleteStock(account, stock, idx) {
+  deleteStock(account, stock: UserStock, idx) {
+
     this.dialog.open(ConfirmComponent, {
       width: '250px',
       height: '300px'
     }).afterClosed().subscribe((confirmed) => {
       if (confirmed) {
-        console.log('deleting');
         this.myStocksService.deleteStocks(account, stock.symbol).subscribe(() => {
-          if (account === 'pea') {
-            this.pea.splice(idx, 1);
-          } else {
-            this.titres.splice(idx, 1);
-          }
+          account === 'pea' ? this.pea.splice(idx, 1) : this.titres.splice(idx, 1);
         });
       }
     });
