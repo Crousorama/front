@@ -13,6 +13,7 @@ export class BfmSearchComponent implements OnInit {
 
   searchOptions: SearchResult[] = [];
   loading = false;
+  sub = null;
 
   static getStockId(stockUrl: string) {
     return stockUrl.split('www.tradingsat.com/')[1].replace('/', '');
@@ -30,7 +31,10 @@ export class BfmSearchComponent implements OnInit {
 
   async change(search: string) {
     this.loading = true;
-    this.searchOptions = await this.searchService.search(search).toPromise();
+    if (this.sub) {
+      await this.sub.unsubscribe();
+    }
+    this.sub = this.searchService.search(search).subscribe(res => this.searchOptions = res);
     this.loading = false;
   }
 
