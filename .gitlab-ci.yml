@@ -16,6 +16,7 @@ get_credentials:
   script:
     - gcloud --version
     - echo $CD_SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
+    - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
     - gsutil cp gs://crousorama-credentials/front/environment.prod.ts ./src/environments
   artifacts:
     name: "project-$CI_COMMIT_REF_NAME"
