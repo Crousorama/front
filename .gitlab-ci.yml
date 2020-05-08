@@ -21,7 +21,7 @@ get_credentials:
   artifacts:
     name: "project-$CI_COMMIT_REF_NAME"
     paths:
-      - ./
+      - ./environments/environment.prod.ts
   after_script:
     - rm /tmp/$CI_PIPELINE_ID.json
 
